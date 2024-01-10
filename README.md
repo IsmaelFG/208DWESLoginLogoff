@@ -1,4 +1,4 @@
-# Proyecto LoginLogoffTema5
+# Proyecto LoginLogoff
 ## Autor
 Ismael Ferreras García
 ## Requisitos
@@ -7,9 +7,9 @@ Ismael Ferreras García
    -[PHP8.1]
    -[XDEBUG3.1.2]
 ##Descripcion
-Aplicacion Loginlogoff Tema 5
+Aplicacion Loginlogoff
 
 ##Funcionalidad
 
 ##Entorno de desarrollo
-(http://daw208.isauces.local/208DWESProyectoLoginLogoffTema5/indexProyectoLoginLogoffTema5.html)
+(http://daw208.isauces.local/208DWESProyectoLoginLogoff/index.php)
