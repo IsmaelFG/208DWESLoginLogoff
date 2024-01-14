@@ -38,8 +38,7 @@
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container">
                 <a class="navbar-brand text-white" href="/index.html">LoginLogoff</a>
-
-        <?php require_once $view[$_SESSION['paginaActiva']]; ?>
+        //<?php require_once $view[$_SESSION['paginaActiva']]; ?>
         <footer class="bg-primary text-light py-4 fixed-bottom">
             <div class="container">
                 <div class="row">

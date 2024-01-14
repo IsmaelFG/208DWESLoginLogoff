@@ -5,10 +5,6 @@
  * @since 10/01/2024
  */
 ?>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
 <form method="post" action="">
     <button type="submit" name="idioma" value="es" class="btn btn-primary">
         <img src="webroot/imagenes/spain.jpg" alt="es" width="30" height="20">

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author Ismael Ferreras García
  * @version 1.0
@@ -13,7 +12,8 @@ if (!isset($_COOKIE['idioma'])) {
 //Comprobamos si pulsa el boton login
 if (isset($_REQUEST['login'])) {
     // Redirige a la página de login
-    header("Location: codigoPHP/Login.php");
+    $_SESSION['paginaActiva'] = 'login';
+    require_once $controller[$_SESSION['paginaActiva']];
     exit();
 }
 //Comprobamos si pulsa algun boton de idioma
