@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ismael Ferreras García
  * @version 1.0
@@ -19,24 +20,19 @@ $aErrores = [
     'contrasena' => '',
 ];
 if (isset($_REQUEST['enviar'])) {
-    $_SESSION['paginaActiva'] = 'wip';
-    require_once $controller[$_SESSION['paginaActiva']];
-    exit();
-    // Conexion a la base de datos
-    $miDB = new PDO(DSN, USERNAME, PASSWORD);
 
-    // Preparar la consulta SQL para verificar las credenciales
-    $stmt = $miDB->prepare("SELECT * FROM T01_Usuario WHERE T01_CodUsuario = :usuario AND T01_Password = :hashContrasena");
-    // Ejecutamos la consulta
-    $stmt->execute(['usuario' => $_REQUEST['usuario'], 'hashContrasena' => hash('sha256', $_REQUEST['usuario'] . $_REQUEST['contrasena'])]);
-
-    // Almacenamos el resultado de la query como objeto mediante FETCH_OBJ
-    $oUsuarioActivo = $stmt->fetch(PDO::FETCH_OBJ);
+    // Validamos si el usuario existe y es oUsuarioActivo utilizando el metodo 'validarUsuario()' de la clase 'UsuarioPDO'
+    $oUsuarioActivo = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
+    // Comprobamos si '$oUsuarioActivo' no esta declarado o es 'null'
+    if (!isset($oUsuarioActivo)) {
+        $entradaOK = false; // En caso verdadero cambiamos el valor de '$entradaOK' a 'false'
+    }
     // Validar los campos
     $aErrores = [
         'usuario' => (!$oUsuarioActivo) ? 'Error de autentificacion. Vuelve a introducir las credenciales.' : validacionFormularios::comprobarAlfaNumerico($_REQUEST['usuario'], 32, 4, 1),
         'contrasena' => (!$oUsuarioActivo) ? 'Error de autentificacion. Vuelve a introducir las credenciales.' : validacionFormularios::validarPassword($_REQUEST['contrasena'], 32, 4, 2, 1)
     ];
+
     // Recorre aErrores para ver si hay alguno
     foreach ($aErrores as $campo => $valor) {
         if ($valor != null) {
@@ -50,25 +46,13 @@ if (isset($_REQUEST['enviar'])) {
 }
 // En caso de que '$entradaOK' sea true, cargamos las respuestas en el array '$aRespuestas' 
 if ($entradaOK) {
-    // Iniciar la sesión
+
     // Actualizamos la fecha y hora de la última conexión
-    $fechaHoraUltimaConexionAnterior = $oUsuarioActivo->T01_FechaHoraUltimaConexion;
-    // Incrementamos el número de conexiones
-    $numConexionesActual = $oUsuarioActivo->T01_NumConexiones + 1;
-    // Configuramos sesiones para almacenar la información del usuario
-    session_start();
-    $_SESSION['usuarioDAW208LoginLogOffTema5'] = $oUsuarioActivo->T01_DescUsuario;
-    $_SESSION['numConexiones'] = $numConexionesActual;
-    $_SESSION['ultimaConexion'] = $fechaHoraUltimaConexionAnterior;
-
-    // Preparar la consulta SQL para actualizar los datos
-    $stmt = $miDB->prepare("UPDATE T01_Usuario SET T01_NumConexiones = $numConexionesActual, T01_FechaHoraUltimaConexion = CURRENT_TIMESTAMP WHERE T01_CodUsuario = :usuario");
-    // Ejecutamos la consulta
-    $stmt->execute(['usuario' => $_REQUEST['usuario']]);
-
-    // Redirigir a programa.php
-    header("Location:Programa.php");
-    // Asegurarse de que el script se detenga después de la redirección
+    $oUsuarioActivo = UsuarioPDO::registrarUltimaConexion($oUsuarioActivo);
+    //Redireccionamos a el inicio privado
+    $_SESSION['user208DWESLoginLogout'] = $oUsuarioActivo;
+    $_SESSION['paginaActiva'] = 'inicioPrivado';
+    require_once $controller[$_SESSION['paginaActiva']];
     exit();
 }
 require_once $view['layout'];
