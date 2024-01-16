@@ -78,9 +78,5 @@ class Usuario {
 
     public function setPerfil($perfil): void {
         $this->perfil = $perfil;
-    }
-
-
-
-    
+    }  
 }
