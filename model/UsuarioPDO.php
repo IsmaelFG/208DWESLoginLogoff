@@ -22,13 +22,13 @@ class UsuarioPDO implements UsuarioDB {
             // Instancia un nuevo objeto Usuario con todas sus propiedades
             if ($oResultado) {
                 $oUsuario = new Usuario(
-                        $oUsuario->T01_CodUsuario,
-                        $oUsuario->T01_Password,
-                        $oUsuario->T01_DescUsuario,
-                        $oUsuario->T01_NumConexiones,
-                        $oUsuario->T01_FechaHoraUltimaConexion,
-                        $oUsuario->T01_FechaHoraUltimaConexionAnterior=null,
-                        $oUsuario->T01_Perfil
+                        $oResultado->T01_CodUsuario,
+                        $oResultado->T01_Password,
+                        $oResultado->T01_DescUsuario,
+                        $oResultado->T01_NumConexiones,
+                        $oResultado->T01_FechaHoraUltimaConexion,
+                        $oResultado->T01_FechaHoraUltimaConexionAnterior=null,
+                        $oResultado->T01_Perfil
                 );
             }
         }
