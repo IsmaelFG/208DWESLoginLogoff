@@ -21,19 +21,19 @@ class UsuarioPDO implements UsuarioDB {
             $oUsuario = $resultado->fetchObject();
             // Instancia un nuevo objeto Usuario con todas sus propiedades
             if ($oUsuario) {
-                $oUsuario = new Usuario(
+                $oUsuario2 = new Usuario(
                         $oUsuario->T01_CodUsuario,
                         $oUsuario->T01_Password,
                         $oUsuario->T01_DescUsuario,
                         $oUsuario->T01_NumConexiones,
                         $oUsuario->T01_FechaHoraUltimaConexion,
-                        $oUsuario->T01_FechaHoraUltimaConexionAnterior,
+                        $oUsuario->T01_FechaHoraUltimaConexionAnterior=null,
                         $oUsuario->T01_Perfil
                 );
             }
         }
         //Devuelve el objeto usuario
-        return $oUsuario; 
+        return $oUsuario2; 
     }
 
     public static function registrarUltimaConexion($oUsuario) {
