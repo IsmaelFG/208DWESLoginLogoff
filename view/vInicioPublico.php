@@ -16,6 +16,7 @@
 <form method="post" action="">
     <button type="submit" name="login" class="btn btn-primary">Login</button>
 </form>
+<a class="navbar-brand text-white">Inicio Publico</a>
 </div>
 </nav>
 <div class="position-absolute top-50 start-50 translate-middle">

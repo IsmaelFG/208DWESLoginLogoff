@@ -14,7 +14,7 @@ if (isset($_SESSION)) {
     echo '<br><br><h2>Variable <b>$_SESSION</b></h2>';
     foreach ($_SESSION as $key => $value) {
         if ($key === 'user208DWESLoginLogout') {
-            echo "<b>$key</b>:" . $value->getCodUsuario()."<br>";
+            print_r("<b>$key</b>:" . $value->getDescUsuario()."<br>");
         } else {
             echo "<b>$key</b>: $value<br>";
         }
