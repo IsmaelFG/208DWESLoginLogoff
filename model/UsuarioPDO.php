@@ -18,10 +18,10 @@ class UsuarioPDO implements UsuarioDB {
         $resultado = DBPDO::ejecutaConsulta($consulta);
         // Si el resultado de la consulta tiene valor guarda el resultado en el objeto oUsuario
         if ($resultado->rowCount() > 0) {
-            $oUsuario = $resultado->fetchObject();
+            $oResultado = $resultado->fetchObject();
             // Instancia un nuevo objeto Usuario con todas sus propiedades
-            if ($oUsuario) {
-                $oUsuario2 = new Usuario(
+            if ($oResultado) {
+                $oUsuario = new Usuario(
                         $oUsuario->T01_CodUsuario,
                         $oUsuario->T01_Password,
                         $oUsuario->T01_DescUsuario,
@@ -33,7 +33,7 @@ class UsuarioPDO implements UsuarioDB {
             }
         }
         //Devuelve el objeto usuario
-        return $oUsuario2; 
+        return $oUsuario; 
     }
 
     public static function registrarUltimaConexion($oUsuario) {
