@@ -15,7 +15,7 @@
             <td><input class="obligatorio" type="text" id="usuario" name="usuario" value="<?php echo (isset($_REQUEST['usuario']) ? $_REQUEST['usuario'] : ''); ?>"></td>
         </tr>
         <tr>
-            <td><label for="contrasena">Contraseña:</label></td>
+            <td><laorio" type="password" id="contrasena" name="contrasena" value="bel for="contrasena">Contraseña:</label></td>
             <td><input class="obligatorio" type="password" id="contrasena" name="contrasena" value="<?php echo (isset($_REQUEST['contrasena']) ? $_REQUEST['contrasena'] : ''); ?>"></td>
         </tr>
     </table>

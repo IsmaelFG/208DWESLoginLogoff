@@ -9,7 +9,7 @@
 if (isset($_REQUEST['volver'])) {
     // Redirige a la página de inicio
     $_SESSION['paginaActiva'] = 'inicioPublico';
-    require_once $controller[$_SESSION['paginaActiva']];
+    header('Location: index.php');
     exit();
 }
 
@@ -46,13 +46,13 @@ if (isset($_REQUEST['enviar'])) {
 }
 // En caso de que '$entradaOK' sea true, cargamos las respuestas en el array '$aRespuestas' 
 if ($entradaOK) {
-
+    $_SESSION['paginaAnterior'] = 'login';
     // Actualizamos la fecha y hora de la última conexión
     $oUsuarioActivo = UsuarioPDO::registrarUltimaConexion($oUsuarioActivo);
     //Redireccionamos a el inicio privado
     $_SESSION['user208DWESLoginLogout'] = $oUsuarioActivo;
     $_SESSION['paginaActiva'] = 'inicioPrivado';
-    require_once $controller[$_SESSION['paginaActiva']];
+    header('Location: index.php');
     exit();
 }
 require_once $view['layout'];
