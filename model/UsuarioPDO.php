@@ -27,13 +27,13 @@ class UsuarioPDO implements UsuarioDB {
                         $oResultado->T01_DescUsuario,
                         $oResultado->T01_NumConexiones,
                         $oResultado->T01_FechaHoraUltimaConexion,
-                        $oResultado->T01_FechaHoraUltimaConexionAnterior=null,
+                        $oResultado->T01_FechaHoraUltimaConexionAnterior = null,
                         $oResultado->T01_Perfil
                 );
             }
         }
         //Devuelve el objeto usuario
-        return $oUsuario; 
+        return $oUsuario;
     }
 
     public static function registrarUltimaConexion($oUsuario) {

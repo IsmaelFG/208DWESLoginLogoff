@@ -20,6 +20,7 @@ $aErrores = [
     'contrasena' => '',
 ];
 if (isset($_REQUEST['enviar'])) {
+    $_SESSION['paginaAnterior'] = 'login';
 
     // Validamos si el usuario existe y es oUsuarioActivo utilizando el metodo 'validarUsuario()' de la clase 'UsuarioPDO'
     $oUsuarioActivo = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
@@ -46,7 +47,6 @@ if (isset($_REQUEST['enviar'])) {
 }
 // En caso de que '$entradaOK' sea true, cargamos las respuestas en el array '$aRespuestas' 
 if ($entradaOK) {
-    $_SESSION['paginaAnterior'] = 'login';
     // Actualizamos la fecha y hora de la última conexión
     $oUsuarioActivo = UsuarioPDO::registrarUltimaConexion($oUsuarioActivo);
     //Redireccionamos a el inicio privado

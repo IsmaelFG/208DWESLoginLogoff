@@ -5,7 +5,7 @@
  * @version 1.0
  * @since 17/01/2024
  */
-class ERROR {
+class ErrorApp {
 
     private $codError;
     private $descError;
@@ -33,21 +33,5 @@ class ERROR {
 
     public function getLineaError() {
         return $this->lineaError;
-    }
-
-    public function setCodError($codError): void {
-        $this->codError = $codError;
-    }
-
-    public function setDescError($descError): void {
-        $this->descError = $descError;
-    }
-
-    public function setArchivoError($archivoError): void {
-        $this->archivoError = $archivoError;
-    }
-
-    public function setLineaError($lineaError): void {
-        $this->lineaError = $lineaError;
     }
 }
