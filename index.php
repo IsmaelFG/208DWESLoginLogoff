@@ -12,7 +12,7 @@ require_once 'config/confDB.php';
 //Recupero la sesión
 session_start();
 
-// Comprueba si hay una pagina en activa
+// Comprueba si hay una pagina activa
 if (!isset($_SESSION['paginaActiva'])) {
     //Asigna como pagina activa inicioPublico
     $_SESSION['paginaActiva'] = 'inicioPublico';

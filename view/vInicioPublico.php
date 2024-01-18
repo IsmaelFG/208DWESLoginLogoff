@@ -5,14 +5,14 @@
  * @since 10/01/2024
  */
 ?>
-<form method="post" action="">
-    <button type="submit" name="idioma" value="es" class="btn btn-primary">
+<form method="post">
+    <button type="submit" name="espanol" class="btn btn-primary">
         <img src="webroot/imagenes/spain.jpg" alt="es" width="30" height="20">
     </button>
-    <button type="submit" name="idioma" value="en" class="btn btn-primary">
+    <button type="submit" name="ingles" class="btn btn-primary">
         <img src="webroot/imagenes/english.png" alt="en" width="30" height="20">
     </button>
-</form>              
+</form>                       
 <form method="post" action="">
     <button type="submit" name="login" class="btn btn-primary"><img src="webroot/imagenes/icono-user.png" alt="login"  width="30" height="30"></button>
 </form>
