@@ -1,7 +1,22 @@
 <?php
-
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
+/**
+ * @author Ismael Ferreras García
+ * @version 1.0
+ * @since 15/01/2024
  */
+?>
+<a class="navbar-brand text-white">Inicio Privado</a>
+</div>
+</nav>
+<?php 
+echo $avInicioPrivado['bienvenida'];
+echo $avInicioPrivado['numConexiones'];
+echo $avInicioPrivado['ultimaConexion'];
+?>
+<form method="post" action="">
+    <input class="cerrar_sesion" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
+    <input class="detalle" type="submit" name="detalle" value="Detalle">
+</form>
+
+
 

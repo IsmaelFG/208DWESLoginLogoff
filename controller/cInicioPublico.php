@@ -13,16 +13,21 @@ if (!isset($_COOKIE['idioma'])) {
 //Comprobamos si pulsa el boton login
 if (isset($_REQUEST['login'])) {
     // Redirige a la página de login
-    header("Location: codigoPHP/Login.php");
+    $_SESSION['paginaActiva'] = 'login';
+    header('Location: index.php');
     exit();
 }
 //Comprobamos si pulsa algun boton de idioma
-if (isset($_REQUEST['idioma'])) {
+if (isset($_REQUEST['espanol'])) {
 //Cambiamos la cookie al idioma seleccionado y refrescamos la pagina
-    $idioma = $_REQUEST['idioma'];
-    setcookie("idioma", $idioma, time() + (30 * 24 * 60 * 60), "/");
-    header('Location: ' . $_SERVER['PHP_SELF']);
-    exit;
+    setcookie("idioma", "es", time() + 2592000);
+    header('Location: index.php');
+    exit();
 }
-
+if (isset($_REQUEST['ingles'])) {
+//Cambiamos la cookie al idioma seleccionado y refrescamos la pagina
+    setcookie("idioma", "en", time() + 2592000);
+    header('Location: index.php');
+    exit();
+}
 require_once $view['layout'];
