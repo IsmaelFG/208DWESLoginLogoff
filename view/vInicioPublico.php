@@ -29,6 +29,9 @@
                 <div class="carousel-item" data-bs-interval="10000">
                     <img src="webroot/imagenes/archivosApp.PNG" class="img-fluid" alt="Archivos de la Aplicación">
                 </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="webroot/imagenes/DiagramaClases.PNG" class="img-fluid" alt="Archivos de la Aplicación">
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="false"></span>
